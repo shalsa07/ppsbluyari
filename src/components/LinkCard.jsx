@@ -68,7 +68,7 @@ export default function LinkCard({project,index}) {
 
             {/* Subtle hover indicator */}
             <Link 
-                href={`/buildings/${project?._id}`} 
+                href={`/projects/${project?._id}`} 
                 className="mt-auto pt-2 border-t border-neutral-100 -opacity-0 group-hover:opacity-100 justify-center items-center transition-opacity duration-300"
             >
                 <span className="text-xs text-neutral-400 font-light tracking-widest text-center uppercase">

@@ -81,7 +81,7 @@ export default function ExperienceUI({
         </div>
 
         {/* RIGHT UI */}
-        <div className='btn-options flex absolute z-10 right-0 top-0 h-full w-96 bg-black/75 flex-col text-white'>
+        <div className='btn-options fixed flex z-10 right-0 top-0 h-full w-96 bg-black/75 flex-col text-white'>
             <div className='flex w-full h-[52px] items-center justify-end'>
                 <div className='flex flex-col text-4xl cursor-pointer mr-2 h-fit w-fit items-center justify-center'>
                     <IoMdClose />
