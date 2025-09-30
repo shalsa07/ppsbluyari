@@ -9,15 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.3.0",
+    "@react-three/xr": "^6.6.26",
+    "@types/three": "^0.180.0",
+    "@uiw/react-color-circle": "^2.8.1",
+    "framer-motion": "^12.23.22",
+    "lil-gui": "^0.20.0",
+    "next": "15.4.4",
     "react": "19.1.0",
+    "react-colorful": "^5.6.1",
     "react-dom": "19.1.0",
-    "next": "15.4.4"
+    "react-icons": "^5.5.0",
+    "three": "^0.180.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.4.4",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4"
   }
 }

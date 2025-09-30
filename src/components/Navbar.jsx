@@ -1,0 +1,59 @@
+'use client'
+import Image from 'next/image'
+import Link from 'next/link'
+import React, { useState } from 'react'
+import RollOverStateWrapper from './RollOverStateWrapper'
+import { settings } from '@/libs/settings'
+import { usePathname } from 'next/navigation'
+
+export default function Navbar() {
+
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname=usePathname()
+  // I've removed the empty item from the array to prevent rendering issues.
+  const links=['home','about us','projects','services','contacts']
+
+  // console.log('Navbar:',pathname)
+
+  // Helper function to create URL-friendly slugs
+  const createSlug = (text) => text.replace(/\s+/g, '-').toLowerCase();
+
+  return (
+    <nav className='flex text-white absolute top-0 mx-auto z-50 justify-between w-full h-hit items-center'>
+      <Link className='flex flex-1 items-center h-fit' href={'/'}>
+        <img className='md:ml-10 ml-4' src="/assets/luyari_home_logo.png" alt="" />
+      </Link>
+
+      <div className='md:flex hidden justify-center text-xs flex-2 gap-5'>
+        {links?.map((link) =>
+          <Link key={link} className={`hover:border-b-2 ${settings.luyariBlueBorder} h-5 uppercase`} href={link === 'home' ? '/' : `/${createSlug(link)}`}>{link}</Link>
+        )}
+      </div>
+
+      {<div className={`flex-1 z-10 flex justify-end ${!pathname?.split('/').length>2 && 'invisible'}`}>
+        <RollOverStateWrapper src={settings.btnsImages.signin_2}/>
+      </div>}
+      
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="nabar-popup absolute z-40 top-0 left-0 w-full text-white h-svh bg-black/90 shadow-sm py-6 md:hidden">
+          <div className="flex flex-col items-center mt-20 gap-5">
+            {links.map((link, index) => (
+              <Link
+                key={index}
+                className={`hover:border-b-4 h-11 ${settings.luyariBlueBorder} text-sm cursor-pointer uppercase py-2`}
+                href={link === 'home' ? '/' : `/${createSlug(link)}`}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  // handlePageClick(link,index)
+                }}
+              >
+                {link}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </nav>
+  )
+}

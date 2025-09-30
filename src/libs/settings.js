@@ -1,0 +1,30 @@
+export const settings={
+    url:'https://localhost:3000/',
+    whatsappNumber:'26774308319',
+    luyariBlue:'bg-[#2fa2d0]',
+    luyariTextBlue:'text-[#2fa2d0]',
+    luyariPurple:'bg-[#d02fa2]',
+    luyariTextPurple:'text-[#d02fa2]',
+    luyariBlueBorder:'border-[#2fa2d0}',
+    luyariPurpleBorder:'border-[#d02fa2}',
+    btnsImages:{
+        signin_1:{
+            default:'/assets/sign_in_btn_off.png',
+            hover:'/assets/sign_in_btn_ov.png'
+        },
+        signin_2:{
+            default:'/assets/sign_in_btn2_off.png',
+            hover:'/assets/sign_in_btn2_ov.png'
+        },
+        explore:{
+            default:'/assets/explore_btn_off.png',
+            hover:'/assets/explore_btn_ov.png'
+        },
+        logoFooter:{
+            default:'/assets/ppsb_footer_logo.png',
+        },
+        logoHome:{
+            default:'/assets/luyari_home_logo.png',
+        },
+    }
+}
