@@ -108,7 +108,7 @@ export default function ExperienceUI({
         </div>
 
         {/* RIGHT UI */}
-        <div className={`right-btn-ui fixed ease-linear duration-200 flex overflow-y-auto z-30 right-0 top-0 h-full ${closeBtnState ? 'w-0' : 'md:w-96 w:full'} bg-slate-600/75 flex-col text-white`}>
+        <div className={`right-btn-ui fixed ease-linear duration-200 flex overflow-y-auto z-30 right-0 top-0 h-full ${closeBtnState ? 'w-0' : 'md:w-96 w:full'} bg-slate-600/85 flex-col text-white`}>
             <div className={`flex mt-2 justify-start`}>
                 {!closeBtnState && <RollOverStateWrapper2 src={settings.btnsImages.btnClose} ftn={()=>setCloseBtnState(!closeBtnState)}/>}
             </div>
@@ -189,14 +189,17 @@ export default function ExperienceUI({
         </div>}
 
         {/* TITLE UI */}
-        <div className={`title-wrapper flex w-fit h-fit items-center justify-center absolute md:bottom-2 bottom-14 mx-auto left-0 right-0 text-white ${experienceState?._360Mode && 'bg-gray-600/75'} p-2 z-10`}>
+        <div className={`title-wrapper flex w-fit h-fit items-center justify-center absolute md:bottom-2 bottom-14 mx-auto left-0 right-0 text-white ${experienceState?._360Mode && 'bg-gray-600/85'} p-2 z-10`}>
             {experienceState?._360Mode && <span className=' uppercase font-extralight md:text-xl text-sm'>
                 - {experienceState?._360TextureName?.length>0 ? experienceState?._360TextureName : data?._360sImages?.[0]?.name} -
             </span>}
         </div>
 
         {/* BOTTOM BTN UI */}
-        <div className={`title-wrapper flex md:hidden w-11 h-11 rounded-t-full items-center justify-center absolute bottom-0 mx-auto left-0 right-0 bg-white text-gray-500 p-2 z-10`}>
+        <div 
+            onClick={()=>setCloseBtnState(!closeBtnState)}
+            className={`title-wrapper flex md:hidden w-11 h-11 rounded-t-full items-center justify-center absolute bottom-0 mx-auto left-0 right-0 bg-white text-gray-500 p-2 z-10`}
+        >
             {!true ? <IoIosArrowDown className='text-4xl'/> : <IoIosArrowUp  className='text-4xl'/>}
         </div>
 

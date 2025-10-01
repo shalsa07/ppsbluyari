@@ -22,7 +22,7 @@ export default function ExperienceSummaryWrapper({data,options}) {
             <div className='flex flex-wrap md:w-2/3 ml-3 md:ml-0
              w-full h-full'>   
                 {summary?.map((i,index)=>
-                    <div key={index} className='flex flex-col items-center justify-center md:h-1/2 md:w-1/3 w-28 h-24 P-2'>
+                    <div key={index} className='flex flex-col items-center justify-center md:h-1/2 md:w-1/3 w-28 h-20 P-2'>
                         <div 
                             className=' text-xs w-full h-full text-gray-500 flex items-center border-[1.5px] border-gray-500 justify-center flex-col bg-white p-[1.25px]'
                         >
@@ -39,11 +39,11 @@ export default function ExperienceSummaryWrapper({data,options}) {
                     </div>
                 )}
             </div>
-            <div className={`flex md:w-1/3 w-2/3 ml-3 md:ml-0 flex-col justify-center h-full`}>
-                <div className={`uppercase flex md:h-1/2 h-24 items-center text-xs text-center justify-center ${settings.luyariBlue}`}>
+            <div className={`flex md:w-1/3 w-1/2 ml-3 md:ml-0 flex-col justify-center h-full`}>
+                <div className={`uppercase flex md:h-1/2 h-20 items-center text-xs text-center justify-center ${settings.luyariBlue}`}>
                     from | P2 200 000
                 </div>
-                <div className={`uppercase md:h-1/2 h-24 text-gray-500 text-center text-xs flex items-center justify-center bg-white`}>
+                <div className={`uppercase md:h-1/2 h-20 text-gray-500 text-center text-xs flex items-center justify-center bg-white`}>
                     enquire
                 </div>
             </div>

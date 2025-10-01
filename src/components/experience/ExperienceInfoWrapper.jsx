@@ -31,7 +31,7 @@ export default function ExperienceInfoWrapper({data,options}) {
                 </div>
             )}
         </div>
-        <p className='text-xs mb-5'>{data?.outroSection}</p>
+        <p className='text-xs md:mb-5 mb-8'>{data?.outroSection}</p>
     </div>
   )
 }
