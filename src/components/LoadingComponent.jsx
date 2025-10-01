@@ -1,9 +1,20 @@
 import React from 'react'
 
-export default function LoadingComponent() {
+const Spinner = ({ size = 'h-6 w-6', color = 'text-gray-50', borderWidth = 'border-2', className = '' }) => {
   return (
-    <div className='h-full w-full items-center justify-center bg-gray-50'>
-      loading...
+    <div className={`animate-spin rounded-full ${borderWidth} border-t-transparent ${color} ${size} ${className}`}></div>
+  );
+};
+
+export default function LoadingComponent({ size = "h-10 w-10", color = "text-white", borderWidth = "border-4" }) {
+  return (
+    <div className="flex absolute m-auto z-50 items-center justify-center h-fit w-fit p-4 rounded-full">
+      <Spinner
+        size={size}
+        color={color}
+        borderWidth={borderWidth}
+        className="items-center justify-center"
+      />
     </div>
   )
 }

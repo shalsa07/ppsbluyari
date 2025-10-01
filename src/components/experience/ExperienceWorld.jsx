@@ -65,7 +65,9 @@ export default function ExperienceWorld({data}) {
     }
 
     const handle360Click = (value) => {
-      setRotationZ(value)
+    //   console.log('handle360Click',value)
+      experienceDispatch({type:ACTIONS_EXPERIENCE._360_NAME,payload:value})
+      experienceDispatch({type:ACTIONS_EXPERIENCE._360_VIEW})
     }
 
     async function checkForARSupport() {

@@ -1,10 +1,32 @@
-import React from 'react'
+"use client";
+import React, { useEffect, useState } from 'react';
 import { BackSide, TextureLoader } from 'three'
-import { degToRad } from 'three/src/math/MathUtils'
+import { degToRad } from 'three/src/math/MathUtils';
 
-export default function Experience360s({data}) {
-  const texture=new TextureLoader().load(data?._360sImages[0]?.url)
-  // console.log('Experience360s',texture)
+export default function Experience360s({data,experienceState}) {
+  const [texture, setTexture] = useState(null)
+  const textureLoader = new TextureLoader();
+
+  const getFilteredTexture = () => {
+    if (!data?._360sImages) return null
+    return data?._360sImages.find(image => image.name === experienceState?._360TextureName) || data?._360sImages[0];
+  }
+
+  const filteredTexture = getFilteredTexture();
+  const textureURL = filteredTexture?.url;
+  useEffect(() => {
+    if (textureURL) {
+      textureLoader.load(textureURL, (newTexture) => {
+        setTexture(newTexture);
+      });
+    }
+  }, [textureURL, experienceState?._360TextureName]);
+
+    if (!texture) {
+    return null; // Or a loading indicator
+  }
+  console.log('Experience360s',experienceState?._360TextureName)
+
   return (
     <mesh
       rotation={[0, degToRad(90), 0]}
@@ -12,7 +34,7 @@ export default function Experience360s({data}) {
     >
       <sphereGeometry args={[32,500,500]}/>
       <meshBasicMaterial 
-        side={BackSide}
+        side={BackSide} 
         map={texture}
       />
     </mesh>

@@ -14,7 +14,7 @@ export default function OnOffStateWrapper({src,ftn,state}) {
       handleState()
     },[state])
 
-    console.log('RollOverStateWrapper:',state)
+    // console.log('RollOverStateWrapper:',state)
   return (
     <div 
       onClick={() => setIsOn(!isOn)}

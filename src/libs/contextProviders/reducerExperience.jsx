@@ -4,6 +4,7 @@ export const INITIAL_EXPERIENCE_STATE={
     ARMode:false,
     modelMode:false,
     popupMode:false,
+    _360TextureName:'',
     hidelevel:{nameOfObject:'',visible:false},
     snapPoint:''
 }
@@ -16,6 +17,7 @@ export const ACTIONS_EXPERIENCE={
     HIDE_LEVEL:'HIDE_LEVEL',
     RESET:'RESET',
     SNAPPOINT:'SNAPPOINT',
+    _360_NAME:'_360_NAME',
 }
 
 export const reducerExperienceFunction=(state,action)=>{
@@ -31,6 +33,11 @@ export const reducerExperienceFunction=(state,action)=>{
                 _360Mode:true,
                 ARMode: false,
                 modelMode:false,
+            }
+        case '_360_NAME':
+            return {
+                ...state,
+                _360TextureName:action.payload,
             }
         case 'MODEL_VIEW':
             return {

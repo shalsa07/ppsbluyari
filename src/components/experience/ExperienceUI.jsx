@@ -25,7 +25,7 @@ const LeftUIWrapper = ({children}) => {
 }
 
 export default function ExperienceUI({
-    data,options,styleTopCss,styleCss,styleBtnCss,setExpandContainer,expandContainer,activeBtnIndex,handleHideLevelClick,handleSnapPoint,handleModeClick,handleARModeClick,activate,style360BtnCss,arSupported,virtaulizationState,
+    data,options,styleTopCss,styleCss,styleBtnCss,setExpandContainer,expandContainer,activeBtnIndex,handleHideLevelClick,handleSnapPoint,handleModeClick,handleARModeClick,activate,style360BtnCss,arSupported,virtaulizationState,handle360Click
 }) {
     const {experienceState,experienceDispatch,closeBtnState,setCloseBtnState}=useExperienceContext()
 
@@ -67,8 +67,9 @@ export default function ExperienceUI({
                     </div>
                 )}
             </div>
-            <div className='uppercase select-none text-4xl font-light'>
-                model
+            <div className='select-none text-4xl font-light py-2'>
+                {experienceState?.modelMode && 'MODEL'}
+                {experienceState?._360Mode && '360s'}
             </div>
             <div className='flex items-center h-fit w-fit'>
                 <div 
@@ -132,22 +133,22 @@ export default function ExperienceUI({
                 </div>}
 
                 {experienceState?._360Mode 
-                    ?   <div className='flex flex-col gap-1 relative text-gray-500 items-center justify-center w-full h-fit uppercase text-xs'>
+                    ?   <div className='flex flex-col gap-1 relative text-gray-500 items-center ease-linear duration-300 justify-center w-full h-fit uppercase text-xs'>
                             {/* LEVEL 360 BUTTONS */}
                             {data?._360sImages?.length>0 && 
                                 data?._360sImages?.map((i,index)=>
-                                <div onClick={()=>handle(i?.name)} className='flex py-1 gap-2 cursor-pointer w-full items-center justify-start text-gray-500 pl-2 h-14 relative bg-white' key={index}>
+                                <div onClick={()=>handle360Click(i?.name)} className='flex py-1 gap-2 cursor-pointer w-full items-center justify-start text-gray-500 pl-2 h-12 relative bg-white' key={index}>
                                     <div className='flex items-center justify-center w-14 relative overflow-hidden rounded-xl bg-black h-full'>
                                         <Image fill src={i?.url} alt="" />
                                     </div>
-                                    <span className={`text-center text-sm border-b-4 ${index==0 ? settings.luyariBlueBorder :'border-gray-400'}`}>360</span>
-                                    <span className='text-center mt-1'>{index}</span>
+                                    <span className={`text-center text-xl ease-linear duration-300 border-b-4 ${experienceState?._360TextureName==i?.name ? settings.luyariBlueBorder :'border-none'}`}>360</span>
+                                    <span className='text-center text-gray-300 text-xl mt-3'>{index}</span>
                                 </div>
                             )}
                         </div>
                     :   <LeftUIWrapper>
                             {/* LEVEL HIDE BUTTONS */}
-                            <div className='flex overflow-y-auto flex-col gap-1 w-full h-fit'>
+                            <div className='flex  ease-linear duration-300 overflow-y-auto flex-col gap-1 w-full h-fit'>
                                 {data?.hideLevel?.map((i,index)=>
                                     <div key={index} className='flex relative text-gray-500 items-center w-fit float-start h-7 uppercase text-xs'>
                                         <div 
@@ -193,6 +194,13 @@ export default function ExperienceUI({
                 }
             </div>
         </div>}
+
+        {/* TITLE UI */}
+        <div className={`title-wrapper flex w-fit h-fit items-center justify-center absolute md:bottom-2 bottom-10 mx-auto left-0 right-0 text-white ${experienceState?._360Mode && 'bg-gray-600/75'} p-2 z-10`}>
+            {experienceState?._360Mode && <span className=' uppercase font-extralight'>
+                - {experienceState?._360TextureName?.length>0 ? experienceState?._360TextureName : data?._360sImages?.[0]?.name} -
+            </span>}
+        </div>
 
         {/* sing-in UI */}
         {!closeBtnState && <div className={`left-wrapper top-2 absolute right-0 z-50`}>

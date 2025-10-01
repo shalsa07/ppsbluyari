@@ -59,7 +59,7 @@ export default function Navbar() {
         <div className='flex w-fit h-fit relative'>
           {closeBtnState && <div 
             onClick={()=>setCloseBtnState(!closeBtnState)}
-            className={`flex my-auto w-full h-fit duration-200 ease-linear ${closeBtnState ? 'mr-[72px]' : 'mr-0'}`}
+            className={`flex my-auto w-full h-fit duration-500 ease-linear ${closeBtnState ? 'mr-[72px]' : 'mr-0'}`}
           >
             <RollOverStateWrapper src={settings.btnsImages.btnOpen}/>
           </div>}
