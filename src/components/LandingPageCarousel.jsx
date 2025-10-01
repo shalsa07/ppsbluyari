@@ -107,7 +107,7 @@ export default function LandingPageCarousel() {
     }
 
     const handleExploreClick = (params) => {
-      router.push('/buildings')
+      router.push('/projects')
     }
     
 
@@ -145,7 +145,7 @@ export default function LandingPageCarousel() {
           ))}
         </div>
 
-        {/* Carousel Navigation */}
+        {/* Sigin And Explore */}
         <div className='CarouselWrapp absolute flex-col m-auto z-20 flex justify-center h-fit w-fit'>
           <div className='flex h-full w-auto mb-8'>
             <img src="/assets/ppsb_logo.png" alt="" />

@@ -92,23 +92,6 @@ export default function ExperienceUI({
                     <Image src={data?.renders?.[0]?.url} alt='' fill/>
                 </div>}
 
-                {/* 360s BUTTONS */}
-                {/* {data?._360sImages?.length>0 && experienceState?._360Mode && <div className={styleCss}>
-                    {data?._360sImages?.map((i,index)=>
-                        <div onClick={()=>handleHideLevelClick(i?.name)} className={style360BtnCss} key={index}>
-                            {!expandContainer ? <div className='h-full w-full overflow-hidden'>
-                                <span className='truncate absolute z-10 m-auto text-xs text-nowrap overflow-hidden'>{i?.name}</span>
-                                <img className='w-full h-full' src={i?.url} alt="" />
-                            </div> : <div className='h-full w-full overflow-hidden'>
-                                <img className='w-full h-full' src={i?.url} alt="" />
-                                <span className='absolute z-10 m-auto text-xs text-center'>
-                                    {i?.name}
-                                </span>
-                            </div>}
-                        </div>
-                    )}
-                </div>} */}
-
                 {/* LEVEL HIDE BUTTONS */}
                 {data?.hideLevel?.map((i,index)=>
                     <div key={index} className='flex relative text-gray-500 items-center justify-center w-full h-7 uppercase text-xs'>
