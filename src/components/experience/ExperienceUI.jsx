@@ -79,7 +79,7 @@ export default function ExperienceUI({
         </div>
 
         {/* LEFT UI */}
-        {<div className={`btns-left-container flex flex-col gap-1 absolute z-20 top-1/3 left-0 items-end h-fit ${expandContainer ? 'w-44' : 'w-32'} duration-300 ease-linear`}>
+        {<div className={`btns-left-container flex flex-col gap-1 absolute z-20 top-1/3 left-0 items-end h-fit w-32 duration-300 ease-linear`}>
             {/* EXPAND TOGGLE BUTTON */}
             <div onClick={()=>setExpandContainer(!expandContainer)} className='flex bg-white items-center justify-center my-auto top-0 bottom-0 -right-5 w-12 h-12  p-[1px] text-gray-500/75 cursor-pointer'>
                 <div className='flex flex-col h-full w-full justify-center items-center border-1 border-gray-600'>
@@ -94,23 +94,25 @@ export default function ExperienceUI({
 
                 {/* LEVEL HIDE BUTTONS */}
                 {data?.hideLevel?.map((i,index)=>
-                    <div key={index} className='flex relative text-gray-500 items-center justify-center w-full h-7 uppercase text-xs'>
-                        <div 
-                            onClick={()=>handleHideLevelClick(i?.name)}
-                            className='flex w-full items-center justify-start pl-4 h-full bg-white'
-                        >
-                            {i?.name}
-                        </div>
-                        <div className='flex absolute left-[132px] h-fullw-fit gap-1 h-full items-center justify-center text-xs'>
-                            <div className={cssOnOffBtn}>on</div>
-                            <div className={cssOnOffBtn}>off</div>
+                    <div key={index} className='flex relative text-gray-500 items-center justify-center w-fit h-7 uppercase text-xs'>
+                        <div key={index} className='flex relative text-gray-500 bg-white items-center justify-center w-fit h-7 pl-8 uppercase text-xs'>
+                            <div 
+                                // onClick={()=>handleHideLevelClick(i?.name)}
+                                className='flex pl-4 min-w-32 items-center h-full'
+                            >
+                                {i?.name}
+                            </div>
+                            <div className='flex h-full min-w-fit items-center justify-center text-xs'>
+                                <OnOffStateWrapper src={settings.btnsImages.btnOn}/>
+                                <OnOffStateWrapper src={settings.btnsImages.btnOff}/>
+                            </div>
                         </div>
                     </div>
                 )}
 
                 {/* VIEWS BUTTONS */}
                 {data?.roomSnaps?.length>0 && <div className='flex flex-col gap-1 relative text-gray-500 items-center justify-center w-full h-fit uppercase text-xs'>
-                    <div onClick={()=>handleSnapPoint('reset')} className='flex cursor-pointer w-full items-center justify-start pl-2 h-7 bg-white'>
+                    <div onClick={()=>handleSnapPoint('reset')} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white'>
                         <div className={`border-b-3 w-full text-[#] ${settings.luyariBlueBorder} ${settings.luyariTextBlue}`}>home</div>
                     </div>
                     {data?.roomSnaps?.map((i,index)=>
@@ -119,15 +121,6 @@ export default function ExperienceUI({
                         </div>
                     )}
                 </div>}
-
-                {/* COLOR BUTTONS */}
-                {/* {data?.color?.length>0 &&<div className={styleCss}>
-                    {data?.color?.map((i,index)=>
-                        <div className={styleBtnCss} key={index}>
-                            {!expandContainer ? <span className='truncate text-nowrap overflow-hidden'>{i?.name}</span> : <span className='text-center'>{i?.name}</span>}
-                        </div>
-                    )}
-                </div>} */}
             </div>
         </div>}
     </>

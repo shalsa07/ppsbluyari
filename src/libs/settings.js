@@ -57,11 +57,11 @@ export const settings={
         },
         btnOff:{
             default:'/assets/toggle_btn_off_state_off.png',
-            hover:'/assets/toggle_btn_on_state_off.png'
-        },
-        btnOpen:{
-            default:'/assets/toggle_btn_on_state_on.png',
             hover:'/assets/toggle_btn-off_state_on.png'
+        },
+        btnOn:{
+            default:'/assets/toggle_btn_on_state_off.png',
+            hover:'/assets/toggle_btn_on_state_on.png'
         },
         logoHome:{
             default:'/assets/luyari_home_logo.png',
