@@ -11,7 +11,6 @@ const getData =async (id) => {
   return buildingDB.filter(i=>i._id==id)
 }
 
-
 export default async function page({params}) {
   const {id}=await params
   const dataFetched=await getData(id)

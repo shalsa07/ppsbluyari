@@ -3,6 +3,7 @@ export const INITIAL_EXPERIENCE_STATE={
     _360Mode:true,
     ARMode:false,
     modelMode:false,
+    popupMode:false,
     hidelevel:{nameOfObject:'',visible:false},
     snapPoint:''
 }
@@ -38,6 +39,15 @@ export const reducerExperienceFunction=(state,action)=>{
                 _360Mode:false,
                 ARMode: false,
                 modelMode:true,
+            }
+        case 'POPUP_VIEW':
+            return {
+                ...state,
+                firstPersonView:false,
+                popupMode:true,
+                _360Mode:false,
+                ARMode: false,
+                modelMode:false,
             }
         case 'AR_VIEW':
             if (state.ARMode) {

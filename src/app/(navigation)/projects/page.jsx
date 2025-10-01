@@ -5,7 +5,7 @@ import React from 'react'
 
 export default function page() {
   const filteredBuildings=buildingDB
-  console.log('page:',filteredBuildings)
+  // console.log('page:',filteredBuildings)
   return (
     <PagesWrapper>
       <div className='flex h-full w-full px-10 flex-wrap overflow-y-auto'>

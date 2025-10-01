@@ -57,15 +57,30 @@ export default function ExperienceUI({
                 model
             </div>
             <div className='flex items-center h-fit w-fit'>
-                <OnOffStateWrapper 
-                    state={experienceState?._360Mode}
-                    src={settings.btnsImages.btn360}
-                />
-                <OnOffStateWrapper 
-                    state={experienceState?.modelMode}
-                    src={settings.btnsImages.btnModel}
-                />
-                <OnOffStateWrapper src={settings.btnsImages.btnDesign}/>
+                <div 
+                    onClick={()=>experienceDispatch({type:ACTIONS_EXPERIENCE._360_VIEW})}
+                >
+                    <OnOffStateWrapper 
+                        state={experienceState?._360Mode}
+                        src={settings.btnsImages.btn360}
+                    />
+                </div>
+                <div 
+                    onClick={()=>experienceDispatch({type:ACTIONS_EXPERIENCE.MODEL_VIEW})}
+                >
+                    <OnOffStateWrapper 
+                        state={experienceState?.modelMode}
+                        src={settings.btnsImages.btnModel}
+                    />
+                </div>
+                <div 
+                    onClick={()=>experienceDispatch({type:ACTIONS_EXPERIENCE.MODEL_VIEW})}
+                >
+                    <OnOffStateWrapper 
+                        src={settings.btnsImages.btnDesign}
+                        state={experienceState?.popupMode}
+                    />
+                </div>
             </div>
             <span className='flex w-2/3 text-center text-xs flex-wrap'>
                 Prees and drag with your mouse or finder to rotate the model
