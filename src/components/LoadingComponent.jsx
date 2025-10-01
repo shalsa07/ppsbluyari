@@ -8,7 +8,7 @@ const Spinner = ({ size = 'h-6 w-6', color = 'text-gray-50', borderWidth = 'bord
 
 export default function LoadingComponent({ size = "h-10 w-10", color = "text-white", borderWidth = "border-4" }) {
   return (
-    <div className="flex absolute m-auto z-50 items-center justify-center h-fit w-fit p-4 rounded-full">
+    <div className="flex absolute m-auto left-0 right-0 top-0 bottom-0 z-50 items-center justify-center h-fit w-fit p-4 rounded-full">
       <Spinner
         size={size}
         color={color}

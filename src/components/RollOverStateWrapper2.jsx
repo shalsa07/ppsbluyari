@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import React, { useState } from 'react'
 
-export default function RollOverStateWrapper({src,ftn}) {
+export default function RollOverStateWrapper2({src,ftn}) {
     const [isHovered, setIsHovered] = useState(false);
     // console.log('RollOverStateWrapper:',src)
   return (
@@ -12,7 +12,7 @@ export default function RollOverStateWrapper({src,ftn}) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img className='md:w-auto w-[100px] h-full' src={isHovered ? src?.hover : src?.default} alt=""/>
+      <img className='md:w-auto w-[80px] h-full' src={isHovered ? src?.hover : src?.default} alt=""/>
     </div>
   )
 }

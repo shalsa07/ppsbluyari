@@ -146,17 +146,17 @@ export default function LandingPageCarousel() {
         </div>
 
         {/* Sigin And Explore */}
-        <div className='CarouselWrapp absolute flex-col m-auto z-20 flex justify-center h-fit w-fit'>
-          <div className='flex h-full w-auto mb-8'>
+        <div className='CarouselWrapp absolute flex-col m-auto z-10 flex justify-center items-center h-fit w-fit'>
+          <div className='flex items-center justify-center h-full md:w-auto w-[280px] mb-8'>
             <img src="/assets/ppsb_logo.png" alt="" />
           </div>
-          <div className='flex h-fit w-fit'>
+          <div className='flex items-center justify-center h-full md:w-auto w-[220px]'>
             <img src="/assets/luyari_logo.png" alt="" />
           </div>
           <div className='flex items-center justify-center h-14 w-full uppercase text-center'>
             your property developement portal
           </div>
-          <div className='flex h-fit w-fit'>
+          <div className='flex justify-center items-center h-fit w-full'>
             <RollOverStateWrapper 
               ftn={handleSignInClick} 
               src={settings.btnsImages.signin_1}
@@ -169,7 +169,7 @@ export default function LandingPageCarousel() {
         </div>
 
         {/* Carousel Navigation */}
-        <div className="CarouselWrapp absolute bottom-10 left-0 right-0 z-20 flex justify-center space-x-2">
+        <div className="CarouselWrapp absolute bottom-10 left-0 right-0 z-10 flex justify-center space-x-2">
           {heroImages.map((_, index) => (
             <button
               key={index}

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { BackSide, TextureLoader } from 'three'
-import { degToRad } from 'three/src/math/MathUtils';
+import { degToRad } from 'three/src/math/MathUtils';import { useMemo } from 'react';
 
 export default function Experience360s({data,experienceState}) {
   const [texture, setTexture] = useState(null)

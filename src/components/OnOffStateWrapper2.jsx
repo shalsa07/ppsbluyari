@@ -3,7 +3,7 @@ import { Staatliches } from 'next/font/google';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 
-export default function OnOffStateWrapper({src,ftn,state}) {
+export default function OnOffStateWrapper2({src,ftn,state}) {
     const [isOn, setIsOn] = useState(false);
 
     const handleState = () => {
@@ -22,7 +22,7 @@ export default function OnOffStateWrapper({src,ftn,state}) {
       // onMouseEnter={() => setIsHovered(true)}
       // onMouseLeave={() => setIsHovered(false)}
     >
-      <img className='md:w-auto w-[40px] h-full' src={isOn ? src?.hover : src?.default} alt=""/>
+      <img className='md:w-auto w-[10px] h-full' src={isOn ? src?.hover : src?.default} alt=""/>
     </div>
   )
 }

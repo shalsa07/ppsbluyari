@@ -8,7 +8,7 @@ export default function page() {
   // console.log('page:',filteredBuildings)
   return (
     <PagesWrapper>
-      <div className='flex h-full w-full px-10 flex-wrap overflow-y-auto'>
+      <div className='flex h-full w-full md:px-10 px-2 flex-wrap overflow-y-auto'>
         {filteredBuildings?.map((project, index) =>
           <div 
             className='p-2 h-[460px] w-full md:w-1/3 lg:w-1/4'
