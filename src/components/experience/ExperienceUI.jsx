@@ -32,7 +32,7 @@ export default function ExperienceUI({
   return (
     <>
         {/* 3D OPTIONS BUTTONS */}
-        <div className={`btn-options flex flex-col absolute z-20 mx-auto top-16 w-fit h-fit items-center justify-center text-white`}>
+        <div className={`btn-options flex flex-col absolute z-10 mx-auto top-16 w-fit h-fit items-center justify-center text-white`}>
             <div className='flex uppercase rounded-full overflow-hidden items-center justify-center w-fit h-fit'>
                 {options?.map((i,index)=>
                     <div 
@@ -58,7 +58,7 @@ export default function ExperienceUI({
         </div>
 
         {/* RIGHT UI */}
-        <div className='btn-options fixed flex z-10 right-0 top-0 h-full w-96 bg-slate-600/75 flex-col text-white'>
+        <div className='btn-options fixed flex z-30 right-0 top-0 h-full w-96 bg-slate-600/75 flex-col text-white'>
             <div className={`flex mt-2 justify-start`}>
                 {true && <RollOverStateWrapper src={settings.btnsImages.btnClose}/>}
             </div>

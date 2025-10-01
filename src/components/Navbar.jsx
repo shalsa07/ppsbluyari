@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <nav className='flex text-white absolute top-2 mx-auto z-50 justify-between w-full h-hit items-start'>
       <Link className='flex flex-1 items-center h-fit' href={'/'}>
-        <img className='md:ml-4 ml-2' src="/assets/ppsb_luyari_logo.png" alt="" />
+        <img className='ml-2' src="/assets/ppsb_luyari_logo.png" alt="" />
       </Link>
 
       <div className='md:flex hidden h-full mt-4 items-center justify-center text-xs flex-2 gap-5'>
