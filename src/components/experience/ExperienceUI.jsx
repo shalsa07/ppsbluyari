@@ -18,6 +18,9 @@ import { TbArrowAutofitWidth } from "react-icons/tb";
 import { MdClose } from 'react-icons/md';
 import { HiDownload, HiEye, HiX } from 'react-icons/hi';
 import Image from 'next/image';
+import OnOffStateWrapper from '../OnOffStateWrapper';
+import ExperienceInfoWrapper from './ExperienceInfoWrapper';
+import ExperienceSummaryWrapper from './ExperienceSummaryWrapper';
 
 export default function ExperienceUI({
     data,options,styleTopCss,styleCss,styleBtnCss,setExpandContainer,expandContainer,activeBtnIndex,handleHideLevelClick,handleSnapPoint,handleModeClick,handleARModeClick,activate,style360BtnCss,arSupported,virtaulizationState,
@@ -32,17 +35,7 @@ export default function ExperienceUI({
     const [levelList,setLevelList]=useState(data?.hideLevel || [])
     const [levelListUpdate,setLevelListUpdate]=useState([])
     const [hideLevelStatus,setHideLevelStatus]=useState(false)
-    const icons='w-5 h-5'
     const cssOnOffBtn=`flex h-full w-8 ${hideLevelStatus ? 'bg-gray-600' : settings.luyariBlue} items-center cursor-pointer justify-center text-xs`
-    const summary=[
-        {name:'length',icon:<TbArrowAutofitWidth className={icons} />},
-        {name:'width',icon:<TbArrowAutofitHeight className={icons} />},
-        {name:'baths',icon:<IoBedOutline className={icons}/>},
-        {name:'levels',icon:<SiLevelsdotfyi className={icons}/>}, 
-        {name:'cars',icon:<LuBath className={icons}/>}, 
-        {name:'beds',icon:<IoCarOutline className={icons}/>}
-    ]
-    const btnStyles='flex items-center justify-center h-10 w-fit'
 
     // console.log('ExperienceUI:',data)
 
@@ -50,30 +43,24 @@ export default function ExperienceUI({
     <>
         {/* 3D OPTIONS BUTTONS */}
         <div className={`btn-options flex flex-col absolute z-20 mx-auto top-16 w-fit h-fit items-center justify-center text-white`}>
-            <div className='flex uppercase rounded-full overflow-hidden items-center justify-center w-28 h-10'>
+            <div className='flex uppercase rounded-full overflow-hidden items-center justify-center w-fit h-fit'>
                 {options?.map((i,index)=>
                     <div 
-                        onClick={()=>handleModeClick(index)} 
-                        className={`flex w-1/2 h-full text-center font-bold items-center text-gray-500 justify-center text-nowrap`} 
+                        // onClick={()=>handleModeClick(index)} 
+                        className={`flex w-fit h-fit items-center justify-center`} 
                         key={index} 
                     >
-                        <div className={` flex items-center justify-center w-full h-full cursor-pointer ${!index==activeBtnIndex ? 'bg-gray-300' : 'bg-white'} ${index==0 ? 'pl-1' : 'pr-1'}`}>{i}</div>
+                        {index==0 ? <OnOffStateWrapper src={settings.btnsImages.btnVR}/> : <OnOffStateWrapper src={settings.btnsImages.btnAR}/>}
                     </div>
                 )}
             </div>
             <div className='uppercase select-none text-4xl font-thin'>
                 model
             </div>
-            <div className='flex items-center h-10 w-fit'>
-                <div className={`${settings.luyariBlue} cursor-pointer ${btnStyles}`}>
-                    <span className='flex text-sm px-2 items-center'>360</span>
-                </div>
-                <div className={`bg-gray-400 px-3 cursor-pointer ${btnStyles}`}>
-                    <HiOutlineHome/>
-                </div>
-                <div className={`bg-gray-500 px-3 cursor-pointer ${btnStyles}`}>
-                    <IoDocumentTextOutline/>
-                </div>
+            <div className='flex items-center h-fit w-fit'>
+                <OnOffStateWrapper src={settings.btnsImages.btn360}/>
+                <OnOffStateWrapper src={settings.btnsImages.btnModel}/>
+                <OnOffStateWrapper src={settings.btnsImages.btnDesign}/>
             </div>
             <span className='flex w-2/3 text-center text-xs flex-wrap'>
                 Prees and drag with your mouse or finder to rotate the model
@@ -81,58 +68,13 @@ export default function ExperienceUI({
         </div>
 
         {/* RIGHT UI */}
-        <div className='btn-options fixed flex z-10 right-0 top-0 h-full w-96 bg-black/75 flex-col text-white'>
-            <div className='flex w-full h-[52px] items-center justify-end'>
-                <div className='flex flex-col text-4xl cursor-pointer mr-2 h-fit w-fit items-center justify-center'>
-                    <IoMdClose />
-                </div>    
-                <div className={`z-50 h-fit`}>
-                    <RollOverStateWrapper src={settings.btnsImages.signin_2}/>
-                </div>
-            </div>
-            <div className='h-full w-full flex'>
-                <div className='flex flex-col h-[calc(100%-32px)] w-full items-center justify-start pl-4'>
-                    <div className='flex flex-col h-fit text-xs w-full p-2 overflow-y-auto gap-2 mb-4'>
-                        <h1 className='text-3xl uppercase'>
-                            {data?.buildingTitle}
-                        </h1>
-                        <div className='flex min-w-72 min-h-40 mt-1 overflow-hidden'>
-                            <div className='flex flex-wrap w-2/3 h-full'>   
-                                {summary?.map((i,index)=>
-                                    <div key={index} className='flex flex-col items-center justify-center h-1/2 w-1/3 p-1'>
-                                        <div className='bg-white text-xs w-full h-full text-gray-500 flex items-center border-1 border-gray-500 justify-center flex-col'>
-                                            <span className='uppercase text-xs'>{i?.name}</span>
-                                            <span className='text-xs'>{data?.buildingSummary?.[i] ? data?.buildingSummary?.[i]:'N/A'}</span>
-                                            {i?.icon}
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                            <div className={`flex w-1/3 flex-col justify-center h-full p-1`}>
-                                <div className={`uppercase flex h-1/2 items-center text-xs text-center justify-center ${settings.luyariBlue}`}>
-                                    from | P2 200 000
-                                </div>
-                                <div className={`uppercase h-1/2 text-gray-500 text-center text-xs flex items-center justify-center bg-white`}>
-                                    enquire
-                                </div>
-                            </div>
-                        </div>
-                        <p className='uppercase underline'>
-                            {data?.buildingType}
-                        </p>
-                        <p className='text-sm'>{data?.desc}</p>
-                        <p className='text-xs'>{data?.features}</p>
-                        <div className='flex flex-col w-full gap-1 px-5 py-1'>
-                            {data?.buildingHighlights?.map((i,index)=>
-                                <div key={index}>
-                                    <h1 className='uppercase underline text-sm'>{i?.title}</h1>
-                                    <p className='text-xs'>{i?.desc}</p>
-                                </div>
-                            )}
-                        </div>
-                        <p className='text-xs mb-5'>{data?.outroSection}</p>
-                    </div>
-                </div>
+        <div className='btn-options fixed flex z-10 right-0 top-0 h-full w-96 bg-slate-600/75 flex-col text-white'>
+            <div className='flex flex-col h-full w-full items-center justify-start pl-4 overflow-y-auto'>
+                <h1 className='mt-16 text-3xl uppercase'>
+                    {data?.buildingTitle}
+                </h1>
+                <ExperienceSummaryWrapper data={data} options={options}/>
+                <ExperienceInfoWrapper data={data} options={options}/>
             </div>
         </div>
 

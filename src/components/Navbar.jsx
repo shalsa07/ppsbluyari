@@ -19,14 +19,14 @@ export default function Navbar() {
   const createSlug = (text) => text.replace(/\s+/g, '-').toLowerCase();
 
   return (
-    <nav className='flex text-white absolute top-0 mx-auto z-50 justify-between w-full h-hit items-center'>
+    <nav className='flex text-white absolute top-2 mx-auto z-50 justify-between w-full h-hit items-start'>
       <Link className='flex flex-1 items-center h-fit' href={'/'}>
-        <img className='md:ml-10 ml-4' src="/assets/luyari_home_logo.png" alt="" />
+        <img className='md:ml-4 ml-2' src="/assets/ppsb_luyari_logo.png" alt="" />
       </Link>
 
-      <div className='md:flex hidden justify-center text-xs flex-2 gap-5'>
+      <div className='md:flex hidden h-full mt-4 items-center justify-center text-xs flex-2 gap-5'>
         {links?.map((link) =>
-          <Link key={link} className={`hover:border-b-2 ${settings.luyariBlueBorder} h-5 uppercase`} href={link === 'home' ? '/' : `/${createSlug(link)}`}>{link}</Link>
+          <Link key={link} className={`hover:border-b-4 ${settings.luyariBlueBorder} h-5 uppercase`} href={link === 'home' ? '/' : `/${createSlug(link)}`}>{link}</Link>
         )}
       </div>
 

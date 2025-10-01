@@ -5,7 +5,7 @@ export const settings={
     luyariTextBlue:'text-[#2fa2d0]',
     luyariPurple:'bg-[#d02fa2]',
     luyariTextPurple:'text-[#d02fa2]',
-    luyariBlueBorder:'border-[#2fa2d0}',
+    luyariBlueBorder:'border-b-[#2fa2d0]',
     luyariPurpleBorder:'border-[#d02fa2}',
     btnsImages:{
         signin_1:{
@@ -22,6 +22,46 @@ export const settings={
         },
         logoFooter:{
             default:'/assets/ppsb_footer_logo.png',
+        },
+        btn360:{
+            default:'/assets/360_btn_off.png',
+            hover:'/assets/360_btn_on.png'
+        },
+        btnClose:{
+            default:'/assets/close_tab_btn_off.png',
+            hover:'/assets/close_tab_btn_ov.png'
+        },
+        btnModel:{
+            default:'/assets/model_btn_off.png',
+            hover:'/assets/model_btn_on.png'
+        },
+        btnDesign:{
+            default:'/assets/floorplan_info_btn_off.png',
+            hover:'/assets/floorplan_info_btn_on.png'
+        },
+        btnOpen:{
+            default:'/assets/open_tab_btn_off.png',
+            hover:'/assets/open_tab_btn_ov.png'
+        },
+        btnAR:{
+            default:'/assets/toggle_ar_btn_off.png',
+            hover:'/assets/toggle_ar_btn_on.png'
+        },
+        btnVR:{
+            default:'/assets/toggle_vr_btn_off.png',
+            hover:'/assets/toggle_vr_btn_on.png'
+        },
+        btnAR:{
+            default:'/assets/toggle_ar_btn_off.png',
+            hover:'/assets/toggle_ar_btn_on.png'
+        },
+        btnOff:{
+            default:'/assets/toggle_btn_off_state_off.png',
+            hover:'/assets/toggle_btn_on_state_off.png'
+        },
+        btnOpen:{
+            default:'/assets/toggle_btn_on_state_on.png',
+            hover:'/assets/toggle_btn-off_state_on.png'
         },
         logoHome:{
             default:'/assets/luyari_home_logo.png',

@@ -16,11 +16,11 @@ export default async function page({params}) {
   const {id}=await params
   const dataFetched=await getData(id)
   const data=dataFetched[0]
-  console.log('projects page:',id)
-  console.log('projects page:',data)
+  // console.log('projects page:',id)
+  // console.log('projects page:',data)
   return (
     <PagesWrapper>
-      <div className='fixed w-full h-full flex-grow'>
+      <div className='fixed top-0 left-0 w-full h-full flex-grow'>
         <ExperienceWorld data={data}/>
       </div>
     </PagesWrapper>
