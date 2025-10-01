@@ -3,24 +3,13 @@ import { useExperienceContext } from '@/libs/contextProviders/experienceContext'
 import { ACTIONS_EXPERIENCE } from '@/libs/contextProviders/reducerExperience'
 import { settings } from '@/libs/settings';
 import React, { useState } from 'react'
-import { FaAngleRight } from "react-icons/fa6";
 import { FaAngleLeft } from "react-icons/fa6";
-import { HiOutlineHome } from "react-icons/hi2";
-import { IoDocumentTextOutline } from "react-icons/io5";
-import RollOverStateWrapper from '../RollOverStateWrapper';
-import { IoMdClose } from "react-icons/io";
-import { IoCarOutline } from "react-icons/io5";
-import { IoBedOutline } from "react-icons/io5";
-import { TbArrowAutofitHeight } from "react-icons/tb";
-import { SiLevelsdotfyi } from "react-icons/si";
-import { LuBath } from "react-icons/lu";
-import { TbArrowAutofitWidth } from "react-icons/tb";
-import { MdClose } from 'react-icons/md';
-import { HiDownload, HiEye, HiX } from 'react-icons/hi';
 import Image from 'next/image';
 import OnOffStateWrapper from '../OnOffStateWrapper';
 import ExperienceInfoWrapper from './ExperienceInfoWrapper';
 import ExperienceSummaryWrapper from './ExperienceSummaryWrapper';
+import { useRouter } from 'next/navigation';
+import RollOverStateWrapper from '../RollOverStateWrapper';
 
 export default function ExperienceUI({
     data,options,styleTopCss,styleCss,styleBtnCss,setExpandContainer,expandContainer,activeBtnIndex,handleHideLevelClick,handleSnapPoint,handleModeClick,handleARModeClick,activate,style360BtnCss,arSupported,virtaulizationState,
@@ -31,6 +20,7 @@ export default function ExperienceUI({
         return null
     }
 
+    const router=useRouter()
     const [objectHiddenState,setObjectHiddenState]=useState(false)
     const [levelList,setLevelList]=useState(data?.hideLevel || [])
     const [levelListUpdate,setLevelListUpdate]=useState([])
@@ -69,6 +59,9 @@ export default function ExperienceUI({
 
         {/* RIGHT UI */}
         <div className='btn-options fixed flex z-10 right-0 top-0 h-full w-96 bg-slate-600/75 flex-col text-white'>
+            <div className={`flex mt-2 justify-start`}>
+                {true && <RollOverStateWrapper src={settings.btnsImages.btnClose}/>}
+            </div>
             <div className='flex flex-col h-full w-full items-center justify-start pl-4 overflow-y-auto'>
                 <h1 className='mt-16 text-3xl uppercase'>
                     {data?.buildingTitle}
@@ -81,7 +74,7 @@ export default function ExperienceUI({
         {/* LEFT UI */}
         {<div className={`btns-left-container flex flex-col gap-1 absolute z-20 top-1/3 left-0 items-end h-fit w-32 duration-300 ease-linear`}>
             {/* EXPAND TOGGLE BUTTON */}
-            <div onClick={()=>setExpandContainer(!expandContainer)} className='flex bg-white items-center justify-center my-auto top-0 bottom-0 -right-5 w-12 h-12  p-[1px] text-gray-500/75 cursor-pointer'>
+            <div onClick={()=>router.back()} className='flex bg-white items-center justify-center my-auto top-0 bottom-0 -right-5 w-12 h-12  p-[1px] text-gray-500/75 cursor-pointer'>
                 <div className='flex flex-col h-full w-full justify-center items-center border-1 border-gray-600'>
                     <FaAngleLeft className='text-4xl'/>
                 </div>

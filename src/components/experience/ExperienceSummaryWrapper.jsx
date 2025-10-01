@@ -18,19 +18,21 @@ export default function ExperienceSummaryWrapper({data,options}) {
     ]
   return (
     <div className='flex flex-col h-fit text-xs w-full p-2 gap-2'>
-        <div className='flex min-w-72 min-h-40 mt-1 overflow-hidden'>
+        <div className='flex min-w-72 min-h-40 mt-1 gap-1 overflow-hidden'>
             <div className='flex flex-wrap w-2/3 h-full'>   
                 {summary?.map((i,index)=>
-                    <div key={index} className='flex flex-col items-center justify-center h-1/2 w-1/3 p-1'>
-                        <div className='bg-white text-xs w-full h-full text-gray-500 flex items-center border-1 border-gray-500 justify-center flex-col'>
-                            <span className='uppercase text-xs'>{i?.name}</span>
-                            <span className='text-xs'>{data?.buildingSummary?.[i] ? data?.buildingSummary?.[i]:'N/A'}</span>
-                            {i?.icon}
+                    <div key={index} className='flex flex-col items-center justify-center h-1/2 w-1/3 P-1'>
+                        <div className=' text-xs w-full h-full text-gray-500 flex items-center border-1 justify-center flex-col bg-white p-[.5px]'>
+                            <div className=' text-xs w-full h-full text-gray-500 flex items-center border-1 border-gray-500 justify-center flex-col'>
+                                <span className='uppercase text-xs'>{i?.name}</span>
+                                <span className='text-xs'>{data?.buildingSummary?.[i] ? data?.buildingSummary?.[i]:'N/A'}</span>
+                                {i?.icon}
+                            </div>
                         </div>
                     </div>
                 )}
             </div>
-            <div className={`flex w-1/3 flex-col justify-center h-full p-1`}>
+            <div className={`flex w-1/3 flex-col justify-center h-full`}>
                 <div className={`uppercase flex h-1/2 items-center text-xs text-center justify-center ${settings.luyariBlue}`}>
                     from | P2 200 000
                 </div>

@@ -5,11 +5,13 @@ import React, { useState } from 'react'
 import RollOverStateWrapper from './RollOverStateWrapper'
 import { settings } from '@/libs/settings'
 import { usePathname } from 'next/navigation'
+import { useExperienceContext } from '@/libs/contextProviders/experienceContext'
 
 export default function Navbar() {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname=usePathname()
+  const {closeBtnState,setCloseBtnState}=useExperienceContext()
   // I've removed the empty item from the array to prevent rendering issues.
   const links=['home','about us','projects','services','contacts']
 
@@ -30,9 +32,12 @@ export default function Navbar() {
         )}
       </div>
 
-      {<div className={`flex-1 z-10 flex justify-end ${!pathname?.split('/').length>2 && 'invisible'}`}>
-        <RollOverStateWrapper src={settings.btnsImages.signin_2}/>
-      </div>}
+      <div className={`flex-1 relative z-50 flex justify-end`}>
+        {closeBtnState && <div className='flex absolute right-16'><RollOverStateWrapper src={settings.btnsImages.btnOpen}/></div>}
+        <div className='z-20'>
+          <RollOverStateWrapper src={settings.btnsImages.signin_2}/>
+        </div>
+      </div>
       
       {/* Mobile Menu */}
       {mobileMenuOpen && (

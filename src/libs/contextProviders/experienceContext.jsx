@@ -1,16 +1,18 @@
 'use client'
 
-import React, { createContext, useContext, useReducer } from 'react'
+import React, { createContext, useContext, useReducer, useState } from 'react'
 import { INITIAL_EXPERIENCE_STATE, reducerExperienceFunction } from './reducerExperience'
 
 export const ExperienceContext=createContext()  
 
 export default function ExperienceContextProvider({children}) {
+    const [closeBtnState,setCloseBtnState]=useState(false)
     const [experienceState,experienceDispatch]=useReducer(reducerExperienceFunction,INITIAL_EXPERIENCE_STATE)
   return (
     <ExperienceContext.Provider
         value={{
           experienceState,experienceDispatch,
+          closeBtnState,setCloseBtnState
         }}
     >
       {children}
