@@ -88,13 +88,6 @@ export default function ExperienceUI({
 
         {/* LEFT UI */}
         {<div className={`btns-left-container flex flex-col gap-1 absolute z-20 top-1/3 left-0 items-end h-fit w-32 duration-300 ease-linear`}>
-            {/* EXPAND TOGGLE BUTTON */}
-            <div onClick={()=>router.back()} className='flex bg-white items-center justify-center my-auto top-0 bottom-0 -right-5 w-12 h-12  p-[1px] text-gray-500/75 cursor-pointer'>
-                <div className='flex flex-col h-full w-full justify-center items-center border-1 border-gray-600'>
-                    <FaAngleLeft className='text-4xl'/>
-                </div>
-                {/* {expandContainer ? <FaAngleLeft/> : <FaAngleRight/>} */}
-            </div>
             <div className='flex font-bold relative gap-1 flex-col w-full h-full'>
                 {data?.renders?.[0]?.url?.length>0 &&<div className='flex relative w-full h-20 items-center justify-center'>
                     <Image src={data?.renders?.[0]?.url} alt='' fill/>
@@ -105,7 +98,7 @@ export default function ExperienceUI({
                             {/* LEVEL 360 BUTTONS */}
                             {data?._360sImages?.length>0 && 
                                 data?._360sImages?.map((i,index)=>
-                                <div onClick={()=>handle(i?.name)} className='flex py-1 gap-2 cursor-pointer w-full items-center justify-start text-gray-500 pl-2 h-12 relative bg-white' key={index}>
+                                <div onClick={()=>handle(i?.name)} className='flex py-1 gap-2 cursor-pointer w-full items-center justify-start text-gray-500 pl-2 h-14 relative bg-white' key={index}>
                                     <div className='flex items-center justify-center w-14 relative overflow-hidden rounded-xl bg-black h-full'>
                                         <Image fill src={i?.url} alt="" />
                                     </div>
@@ -114,7 +107,6 @@ export default function ExperienceUI({
                                 </div>
                             )}
                         </div>
-
                     :   <div>
                             {/* LEVEL HIDE BUTTONS */}
                             {data?.hideLevel?.map((i,index)=>
@@ -134,30 +126,30 @@ export default function ExperienceUI({
                                 </div>
                             )}
 
-                            {/* VIEWS BUTTONS */}
-                            {data?.roomSnaps?.length>0 && <div className='flex flex-col gap-1 relative text-gray-500 items-center justify-center w-full h-fit uppercase text-xs'>
-                                <div onClick={()=>handleSnapPoint('reset')} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white'>
-                                    <div className={`border-b-3 w-full text-[#] ${settings.luyariBlueBorder} ${settings.luyariTextBlue}`}>home</div>
+                        {/* VIEWS BUTTONS */}
+                        {data?.roomSnaps?.length>0 && <div className='flex flex-col gap-1 relative text-gray-500 items-center justify-center w-full h-fit uppercase text-xs'>
+                            <div onClick={()=>handleSnapPoint('reset')} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white'>
+                                <div className={`border-b-3 w-full text-[#] ${settings.luyariBlueBorder} ${settings.luyariTextBlue}`}>home</div>
+                            </div>
+                            {data?.roomSnaps?.map((i,index)=>
+                                <div onClick={()=>handleSnapPoint(i?.name)} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white' key={index}>
+                                    <span className='text-center'>{i?.name}</span>
                                 </div>
-                                {data?.roomSnaps?.map((i,index)=>
-                                    <div onClick={()=>handleSnapPoint(i?.name)} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white' key={index}>
-                                        <span className='text-center'>{i?.name}</span>
-                                    </div>
-                                )}
-                            </div>}
+                            )}
+                        </div>}
 
-                            {/* VIEWS BUTTONS */}
-                            {data?.roomSnaps?.length>0 && <div className='flex flex-col gap-1 relative text-gray-500 items-center justify-center w-full h-fit uppercase text-xs'>
-                                <div onClick={()=>handleSnapPoint('reset')} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white'>
-                                    <div className={`border-b-3 w-full text-[#] ${settings.luyariBlueBorder} ${settings.luyariTextBlue}`}>home</div>
+                        {/* VIEWS BUTTONS */}
+                        {data?.roomSnaps?.length>0 && <div className='flex flex-col gap-1 relative text-gray-500 items-center justify-center w-full h-fit uppercase text-xs'>
+                            <div onClick={()=>handleSnapPoint('reset')} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white'>
+                                <div className={`border-b-3 w-full text-[#] ${settings.luyariBlueBorder} ${settings.luyariTextBlue}`}>home</div>
+                            </div>
+                            {data?.roomSnaps?.map((i,index)=>
+                                <div onClick={()=>handleSnapPoint(i?.name)} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white' key={index}>
+                                    <span className='text-center'>{i?.name}</span>
                                 </div>
-                                {data?.roomSnaps?.map((i,index)=>
-                                    <div onClick={()=>handleSnapPoint(i?.name)} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white' key={index}>
-                                        <span className='text-center'>{i?.name}</span>
-                                    </div>
-                                )}
-                            </div>}
-                        </div>
+                            )}
+                        </div>}
+                    </div>
                 }
             </div>
         </div>}

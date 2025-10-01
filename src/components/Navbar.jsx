@@ -21,7 +21,7 @@ export default function Navbar() {
   const createSlug = (text) => text.replace(/\s+/g, '-').toLowerCase();
 
   return (
-    <nav className='flex text-white absolute top-2 mx-auto z-50 justify-between w-full h-hit items-start'>
+    <nav className='flex text-white absolute top-2 mx-auto z-10 justify-between w-full h-hit items-start'>
       <Link className='flex flex-1 items-center h-fit' href={'/'}>
         <img className='ml-2' src="/assets/ppsb_luyari_logo.png" alt="" />
       </Link>
@@ -30,13 +30,6 @@ export default function Navbar() {
         {links?.map((link) =>
           <Link key={link} className={`hover:border-b-4 ${settings.luyariBlueBorder} h-5 uppercase`} href={link === 'home' ? '/' : `/${createSlug(link)}`}>{link}</Link>
         )}
-      </div>
-
-      <div className={`flex-1 relative z-50 flex justify-end`}>
-        {closeBtnState && <div className='flex absolute right-16'><RollOverStateWrapper src={settings.btnsImages.btnOpen}/></div>}
-        <div className='z-20'>
-          <RollOverStateWrapper src={settings.btnsImages.signin_2}/>
-        </div>
       </div>
       
       {/* Mobile Menu */}
@@ -59,6 +52,15 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
+      <div className={`flex-1 flex justify-end`}></div>
+
+      <div className={`flex-1 absolute top2 right-0 z-50 flex justify-end`}>
+        {closeBtnState && <div className='flex absolute right-16'><RollOverStateWrapper src={settings.btnsImages.btnOpen}/></div>}
+        <div className='z-20'>
+          <RollOverStateWrapper src={settings.btnsImages.signin_2}/>
+        </div>
+      </div>
     </nav>
   )
 }
