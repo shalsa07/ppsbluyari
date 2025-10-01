@@ -55,10 +55,17 @@ export default function Navbar() {
 
       <div className={`flex-1 flex justify-end`}></div>
 
-      <div className={`flex-1 absolute top2 right-0 z-50 flex justify-end`}>
-        {closeBtnState && <div className='flex absolute right-16'><RollOverStateWrapper src={settings.btnsImages.btnOpen}/></div>}
-        <div className='z-20'>
-          <RollOverStateWrapper src={settings.btnsImages.signin_2}/>
+      <div className={`left-wrapper flex-1 absolute right-0 z-50`}>
+        <div className='flex w-fit h-fit relative'>
+          {closeBtnState && <div 
+            onClick={()=>setCloseBtnState(!closeBtnState)}
+            className={`flex my-auto w-full h-fit duration-200 ease-linear ${closeBtnState ? 'mr-[72px]' : 'mr-0'}`}
+          >
+            <RollOverStateWrapper src={settings.btnsImages.btnOpen}/>
+          </div>}
+          <div className='absolute my-auto top-0 bottom-0 right-0 min-w-fit'>
+            <RollOverStateWrapper src={settings.btnsImages.signin_2}/>
+          </div>
         </div>
       </div>
     </nav>

@@ -7,12 +7,14 @@ export const ExperienceContext=createContext()
 
 export default function ExperienceContextProvider({children}) {
     const [closeBtnState,setCloseBtnState]=useState(false)
+    // const [leftUiClose,setLeftUiClose]=useState(false)
     const [experienceState,experienceDispatch]=useReducer(reducerExperienceFunction,INITIAL_EXPERIENCE_STATE)
   return (
     <ExperienceContext.Provider
         value={{
           experienceState,experienceDispatch,
-          closeBtnState,setCloseBtnState
+          closeBtnState,setCloseBtnState,
+          // leftUiClose,setLeftUiClose
         }}
     >
       {children}

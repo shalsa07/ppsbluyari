@@ -46,51 +46,53 @@ export default function ExperienceWrapper({
     // console.log('ExperienceWrapper:',data?.arPosition)
 
   return (
-    <Canvas>
-        <Suspense 
-            fallback={<ExperienceLoader/>}
-        >
-            <XR store={store}>
-                {experienceState.ARMode && (
-                    <XRDomOverlay>
-                        {/* 3D OPTIONS BUTTONS */}
-                        <ExperienceUIAR
-                            data={data}
-                            options={options}
-                            styleTopCss={styleTopCss} 
-                            styleCss={styleCss} 
-                            styleBtnCss={styleBtnCss} 
-                            setExpandContainer={setExpandContainer}
-                            expandContainer={expandContainer}
-                            activeBtnIndex={activeBtnIndex}
-                            handleHideLevelClick={handleHideLevelClick}
-                            handleSnapPoint={handleSnapPoint}
-                            handleModeClick={handleModeClick}
-                            experienceState={experienceState}
-                            experienceDispatch={experienceDispatch}
-                            scaleModel={scaleModel}
-                            scaleModels={scaleModels}
-                            rotationZ={rotationZ}
-                            handleModelScale={handleModelScale}
-                            handleRotationZ={handleRotationZ}
-                            handleARModeClick={handleARModeClick}
-                            activate={activate}
-                            style360BtnCss={style360BtnCss}
-                        />
-                    </XRDomOverlay>
-                )}
-                <ExperienceLighting/>
-                {(experienceState.modelMode || experienceState.ARMode) && <group
-                    scale={experienceState.ARMode ? [scaleModel, scaleModel, scaleModel] : [1, 1, 1]}
-                    rotation-y={experienceState.ARMode ? degToRad(rotationZ) : 0}
-                    position={experienceState.ARMode ? [0, -1, -20] : [0, 0, 0]}
-                >
-                    <ExperienceModel data={data} />
-                </group>}
-                {experienceState?._360Mode && <Experience360s data={data}/>}
-                {!experienceState?.ARMode && <ExperienceControls data={data}/>}
-            </XR>
-        </Suspense>
-    </Canvas>
+    <div className='w-full h-screen'>
+        <Canvas>
+            <Suspense 
+                fallback={<ExperienceLoader/>}
+            >
+                <XR store={store}>
+                    {experienceState.ARMode && (
+                        <XRDomOverlay>
+                            {/* 3D OPTIONS BUTTONS */}
+                            <ExperienceUIAR
+                                data={data}
+                                options={options}
+                                styleTopCss={styleTopCss} 
+                                styleCss={styleCss} 
+                                styleBtnCss={styleBtnCss} 
+                                setExpandContainer={setExpandContainer}
+                                expandContainer={expandContainer}
+                                activeBtnIndex={activeBtnIndex}
+                                handleHideLevelClick={handleHideLevelClick}
+                                handleSnapPoint={handleSnapPoint}
+                                handleModeClick={handleModeClick}
+                                experienceState={experienceState}
+                                experienceDispatch={experienceDispatch}
+                                scaleModel={scaleModel}
+                                scaleModels={scaleModels}
+                                rotationZ={rotationZ}
+                                handleModelScale={handleModelScale}
+                                handleRotationZ={handleRotationZ}
+                                handleARModeClick={handleARModeClick}
+                                activate={activate}
+                                style360BtnCss={style360BtnCss}
+                            />
+                        </XRDomOverlay>
+                    )}
+                    <ExperienceLighting/>
+                    {(experienceState.modelMode || experienceState.ARMode) && <group
+                        scale={experienceState.ARMode ? [scaleModel, scaleModel, scaleModel] : [1, 1, 1]}
+                        rotation-y={experienceState.ARMode ? degToRad(rotationZ) : 0}
+                        position={experienceState.ARMode ? [0, -1, -20] : [0, 0, 0]}
+                    >
+                        <ExperienceModel data={data} />
+                    </group>}
+                    {experienceState?._360Mode && <Experience360s data={data}/>}
+                    {!experienceState?.ARMode && <ExperienceControls data={data}/>}
+                </XR>
+            </Suspense>
+        </Canvas>
+    </div>
   )
 }

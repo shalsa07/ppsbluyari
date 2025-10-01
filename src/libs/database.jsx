@@ -590,6 +590,223 @@ export const buildingDB=[
 
   {
     _id: 3,
+    projectTitle: "mutinta",
+    siteSection: "featured",
+    price: "2500",
+    buildingTitle: "4- bedroomed house",
+    buildingType: "single",
+    desc: "The brief was to come with a cozy 4 bedroom house with a guest room attached. It also had to have a pajama lounge for the viewing television as well as a separate formal lounge which would be used to entertain quests. The design needed to be trendy but understated. It need to sophisticated enough but affordable to build",
+    buildingSummary: {
+      "length": 12,
+      "width": 23,
+      "baths": 3,
+      "levels": 2,
+      "cars": 2,
+      "beds": 1
+    },
+    features: "FEATURES: 4 Bedrooms, a Guest Bedroom, Breakfast - nook, Pajama-lounge, Scullery, formal dining, Office space, outdoor seating and entertainment area, and an airy kitchen",
+    outroSection: "The design celebrates the life style of the client and as occurred as the plot was the challenge was truly inspirational",
+    buildingHighlights: [
+      {
+        "id": 0,
+        "title": "PLAN DIMENSIONS",
+        "desc": "235M2 Area: 16.56m X 23.69m,Height: 5.6m"
+      },
+      {
+        "id": 1,
+        "title": "CEILING HEIGHTS",
+        "desc": "2.7meters"
+      },
+      {
+        "id": 2,
+        "title": "SQUARE FOOTAGE BREAKDOWN",
+        "desc": "Plinth Area: 235m2, Porch Area: 40m2"
+      },
+      {
+        "id": 3,
+        "title": "BEDROOMS",
+        "desc": "1 Master Bedroom: 4.8m X 4.6m, Walking Closet: 1.38m X 4.6m, Sleeping Area: 3.35m X 4.6m, 2 Bathrooms: 3.33m X 2.99m"
+      },
+      {
+        "id": 4,
+        "title": "ADDITIONAL ROOMS",
+        "desc": "Garage Area: 5.98m X 6.16m, 2 Parking"
+      },
+      {
+        "id": 5,
+        "title": "OUTDOOR AREAS",
+        "desc": "Porch: 40m2"
+      },
+      {
+        "id": 6,
+        "title": "KITCHEN",
+        "desc": "Kitchen Area: 2.99m X 5.26m, Island: 0.9m X 1.2m"
+      }
+    ],
+    renders: [
+      {
+        id: 1,
+        url: "/mutinta/0001.jpg",
+        name: "View 6",
+        desertRefPath: "luyaridesigns/mutinta/View 6.jpg"
+      },
+      {
+        id: 2,
+        url: "/mutinta/0002.jpg",
+        name: "View 6",
+        desertRefPath: "luyaridesigns/mutinta/View 6.jpg"
+      },
+      {
+        id: 3,
+        url: "/mutinta/0003.jpg",
+        name: "View 6",
+        desertRefPath: "luyaridesigns/mutinta/View 6.jpg"
+      },
+      {
+        id: 4,
+        url: "/mutinta/0004.jpg",
+        name: "View 6",
+        desertRefPath: "luyaridesigns/mutinta/View 6.jpg"
+      },
+      {
+        id: 5,
+        url: "/mutinta/0005.jpg",
+        name: "View 6",
+        desertRefPath: "luyaridesigns/mutinta/View 6.jpg"
+      },
+      {
+        id: 6,
+        url: "/mutinta/0006.jpg",
+        name: "View 6",
+        desertRefPath: "luyaridesigns/mutinta/View 6.jpg"
+      },
+      {
+        id: 7,
+        url: "/mutinta/0007.jpg",
+        name: "View 6",
+        desertRefPath: "luyaridesigns/mutinta/View 6.jpg"
+      },
+    ],
+    drawings: [
+      {
+        id: 1,
+        url: "/mutinta/elevations.jpg",
+        name: "Elevations",
+        desertRefPath: "luyaridesigns/mutinta/Elevations.jpg"
+      },
+      {
+        id: 2,
+        url: "/mutinta/plans.jpg",
+        name: "floor-plans",
+        desertRefPath: "luyaridesigns/mutinta/floor-plans.jpg"
+      },
+    ],
+    modelsFiles: [
+      {
+        id: 1,
+        url: "/mutinta/base.glb",
+        name: "blg_grd",
+        desertRefPath: "luyaridesigns/mutinta/blg_grd.glb"
+      },
+    ],
+    hideLevel: [
+      {
+        id: 1,
+        url: "/mutinta/roof.glb",
+        name: "blg_1st",
+        desertRefPath: "luyaridesigns/mutinta/house_Opt_grd.glb"
+      },
+    ],
+    supportFiles: [
+      {
+        id: 0,
+        url: "/mutinta/site.glb",
+        name: "site_final",
+        desertRefPath: "luyaridesigns/mutinta/house_Opt_site.glb"
+      },
+    ],
+    _360sImages: [
+      {
+        id: 1,
+        url: "/mutinta/Opt1_360_0001.jpg",
+        name: "360 pool view",
+        desertRefPath: "luyaridesigns/Gnorth/360 pool view.jpg"
+      },
+      {
+        id: 2,
+        url: "/mutinta/Opt2_360_0002.jpg",
+        name: "360 front view",
+        desertRefPath: "luyaridesigns/Gnorth/360 front view.jpg"
+      }
+    ],
+    position:'-14,0,7',
+    arPosition:'-8,0,13',
+    minDistance: "30",
+    maxDistance: "60",
+    roomSnaps: [
+      {
+        "id": 1,
+        "url": "/mutinta/Drvieway.glb",
+        "name": "pos1",
+        "desertRefPath": "luyaridesigns/Gnorth/pos1.glb"
+      },
+      {
+        "id": 2,
+        "url": "/mutinta/Foyer.glb",
+        "name": "pos2",
+        "desertRefPath": "luyaridesigns/Gnorth/pos1.glb"
+      },
+      {
+        "id": 3,
+        "url": "/mutinta/Lounge.glb",
+        "name": "pos3",
+        "desertRefPath": "luyaridesigns/Gnorth/pos1.glb"
+      },
+      {
+        "id": 4,
+        "url": "/mutinta/Master Bedroom.glb",
+        "name": "pos4",
+        "desertRefPath": "luyaridesigns/Gnorth/pos1.glb"
+      },
+      {
+        "id": 5,
+        "url": "/mutinta/Pool View.glb",
+        "name": "pos5",
+        "desertRefPath": "luyaridesigns/Gnorth/pos1.glb"
+      },
+      {
+        "id": 6,
+        "url": "/mutinta/Road View.glb",
+        "name": "pos6",
+        "desertRefPath": "luyaridesigns/Gnorth/pos1.glb"
+      },
+    ],
+    presentationDrawings: [
+      {
+        "id": 1,
+        "url": "https://firebasestorage.googleapis.com/v0/b/luyaridesigns-562cd.appspot.com/o/luyaridesigns%2FGnorth%2FFinal%20Brochure.pdf?alt=media&token=10c8d672-f9d9-48b7-b5b2-cba16bebe103",
+        "name": "Final Brochure",
+        "desertRefPath": "luyaridesigns/Gnorth/Final Brochure.pdf"
+      }
+    ],
+    constructionDrawings: [
+      {
+        "id": 1,
+        "url": "https://firebasestorage.googleapis.com/v0/b/luyaridesigns-562cd.appspot.com/o/luyaridesigns%2FGnorth%2FMr%20Masilo%20Drawings%20Rev1.pdf?alt=media&token=c8936de8-ca48-446a-a599-f9dccb20d6d6",
+        "name": "Mr Masilo Drawings Rev1",
+        "desertRefPath": "luyaridesigns/Gnorth/Mr Masilo Drawings Rev1.pdf"
+      }
+    ],
+    createdAt: {
+      "$date": "2024-06-13T10:27:06.191Z"
+    },
+    updatedAt: {
+      "$date": "2024-06-13T10:27:06.191Z"
+    }
+  },
+
+  {
+    _id: 4,
     projectTitle: "Sifelane",
     siteSection: "featured",
     price: "2500",

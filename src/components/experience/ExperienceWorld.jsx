@@ -32,6 +32,7 @@ export default function ExperienceWorld({data}) {
     const [activate,setActivate]=useState(false)
     const [arSupported,setARSupported]=useState(false)
     const [virtaulizationState,setVirtaulizationState]=useState(false)
+    const [leftUiClose,setLeftUiClose]=useState(false)
 
     const scaleModels=[1,0.40,0.15]
     const options=['vr','ar']
@@ -126,7 +127,7 @@ export default function ExperienceWorld({data}) {
 
     return (
         <>
-            <div className='flex relative h-svh w-full items-center justify-center overflow-hidden'>
+            {/* <div className='flex relative h-svh w-full items-center justify-center overflow-hidden'> */}
                 <ExperienceWrapper 
                     options={options} 
                     styleBtnCss={styleBtnCss} 
@@ -168,8 +169,10 @@ export default function ExperienceWorld({data}) {
                     arSupported={arSupported}
                     virtaulizationState={virtaulizationState}
                     handle360Click={handle360Click}
+                    leftUiClose={leftUiClose}
+                    setLeftUiClose={setLeftUiClose}
                 />
-            </div>
+            {/* </div> */}
         </>
     )
 }

@@ -10,11 +10,24 @@ import ExperienceInfoWrapper from './ExperienceInfoWrapper';
 import ExperienceSummaryWrapper from './ExperienceSummaryWrapper';
 import { useRouter } from 'next/navigation';
 import RollOverStateWrapper from '../RollOverStateWrapper';
+import { GoChevronLeft } from "react-icons/go";
+
+const LeftUIWrapper = ({children}) => {
+  return(
+    <div className='flex flex-col gap-1 h-full w-48 overflow-y-auto'>
+        <div className='flex flex-col h-fit gap-1 overflow-y-auto'>
+            <div className='flex flex-col h-fit gap-1 overflow-y-auto'>
+                {children}
+            </div>
+        </div>
+    </div>
+  )
+}
 
 export default function ExperienceUI({
     data,options,styleTopCss,styleCss,styleBtnCss,setExpandContainer,expandContainer,activeBtnIndex,handleHideLevelClick,handleSnapPoint,handleModeClick,handleARModeClick,activate,style360BtnCss,arSupported,virtaulizationState,
 }) {
-    const {experienceState,experienceDispatch}=useExperienceContext()
+    const {experienceState,experienceDispatch,closeBtnState,setCloseBtnState}=useExperienceContext()
 
     if (experienceState.ARMode) {
         return null
@@ -25,14 +38,15 @@ export default function ExperienceUI({
     const [levelList,setLevelList]=useState(data?.hideLevel || [])
     const [levelListUpdate,setLevelListUpdate]=useState([])
     const [hideLevelStatus,setHideLevelStatus]=useState(false)
+    // const [leftUiClose,setLeftUiClose]=useState(false)
     const cssOnOffBtn=`flex h-full w-8 ${hideLevelStatus ? 'bg-gray-600' : settings.luyariBlue} items-center cursor-pointer justify-center text-xs`
 
-    console.log('ExperienceUI:',data)
+    // console.log('ExperienceUI:',data)
 
   return (
     <>
         {/* 3D OPTIONS BUTTONS */}
-        <div className={`btn-options flex flex-col absolute z-10 mx-auto top-16 w-fit h-fit items-center justify-center text-white`}>
+        <div className={`middle-btn-ui flex flex-col absolute z-10 mx-auto top-12 left-0 right-0 w-fit h-fit items-center justify-center text-white`}>
             <div className='flex uppercase rounded-full overflow-hidden items-center justify-center w-fit h-fit'>
                 {options?.map((i,index)=>
                     <div 
@@ -88,12 +102,12 @@ export default function ExperienceUI({
         </div>
 
         {/* RIGHT UI */}
-        <div className='btn-options fixed flex z-10 right-0 top-0 h-full w-96 bg-slate-600/75 flex-col text-white'>
+        <div className={`right-btn-ui fixed ease-linear duration-200 flex z-30 right-0 top-0 h-full ${closeBtnState ? 'w-0' : 'md:w-96 w:full'} bg-slate-600/75 flex-col text-white`}>
             <div className={`flex mt-2 z-50 justify-start`}>
-                {true && <RollOverStateWrapper src={settings.btnsImages.btnClose}/>}
+                {!closeBtnState && <RollOverStateWrapper src={settings.btnsImages.btnClose} ftn={()=>setCloseBtnState(!closeBtnState)}/>}
             </div>
             <div className='flex flex-col h-full w-full items-center justify-start pl-4 overflow-y-auto'>
-                <h1 className='mt-16 text-3xl uppercase'>
+                <h1 className='mt-4 text-3xl uppercase'>
                     {data?.buildingTitle}
                 </h1>
                 <ExperienceSummaryWrapper data={data} options={options}/>
@@ -102,8 +116,17 @@ export default function ExperienceUI({
         </div>
 
         {/* LEFT UI */}
-        {<div className={`btns-left-container flex flex-col gap-1 absolute z-20 top-1/3 left-0 items-end h-fit w-32 duration-300 ease-linear`}>
+        {<div className={`left-btn-ui flex flex-col gap-1 absolute z-40 top-1/3 left-0 items-end h-fit w-32 duration-300 ease-linear`}>
             <div className='flex font-bold relative gap-1 flex-col w-full h-full'>
+                <div className='flex text-gray-500 h-16 items-center justify-end w-full'>
+                    <div onClick={()=>router.back()} className='flex items-center justify-center w-16 h-full cursor-pointer bg-white p-[1.25px]'>
+                        <div className='flex items-center justify-center w-20 h-full border-[1.5px] border-gray-500 '>
+                            <GoChevronLeft className='text-4xl'/>
+                        </div>
+                    </div>
+                </div>
+
+                {/* left menu ui */}
                 {data?.renders?.[0]?.url?.length>0 &&<div className='flex relative w-full h-20 items-center justify-center'>
                     <Image src={data?.renders?.[0]?.url} alt='' fill/>
                 </div>}
@@ -122,51 +145,58 @@ export default function ExperienceUI({
                                 </div>
                             )}
                         </div>
-                    :   <div>
+                    :   <LeftUIWrapper>
                             {/* LEVEL HIDE BUTTONS */}
-                            {data?.hideLevel?.map((i,index)=>
-                                <div key={index} className='flex relative text-gray-500 items-center justify-center w-fit h-7 uppercase text-xs'>
-                                    <div key={index} className='flex relative text-gray-500 bg-white items-center justify-center w-fit h-7 pl-8 uppercase text-xs'>
+                            <div className='flex overflow-y-auto flex-col gap-1 w-full h-fit'>
+                                {data?.hideLevel?.map((i,index)=>
+                                    <div key={index} className='flex relative text-gray-500 items-center w-fit float-start h-7 uppercase text-xs'>
                                         <div 
-                                            // onClick={()=>handleHideLevelClick(i?.name)}
-                                            className='flex pl-4 min-w-32 items-center h-full'
+                                            className='flex pl-4 min-w-32 items-center bg-white h-full'
                                         >
                                             {i?.name}
                                         </div>
-                                        <div className='flex h-full min-w-fit items-center justify-center text-xs'>
+                                        <div 
+                                            onClick={()=>handleHideLevelClick(i?.name)}
+                                            className='flex h-full w-full items-center justify-center text-xs'
+                                        >
                                             <OnOffStateWrapper src={settings.btnsImages.btnOn}/>
                                             <OnOffStateWrapper src={settings.btnsImages.btnOff}/>
                                         </div>
                                     </div>
-                                </div>
-                            )}
-
-                        {/* VIEWS BUTTONS */}
-                        {data?.roomSnaps?.length>0 && <div className='flex flex-col gap-1 relative text-gray-500 items-center justify-center w-full h-fit uppercase text-xs'>
-                            <div onClick={()=>handleSnapPoint('reset')} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white'>
-                                <div className={`border-b-3 w-full text-[#] ${settings.luyariBlueBorder} ${settings.luyariTextBlue}`}>home</div>
+                                )}
                             </div>
-                            {data?.roomSnaps?.map((i,index)=>
-                                <div onClick={()=>handleSnapPoint(i?.name)} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white' key={index}>
-                                    <span className='text-center'>{i?.name}</span>
-                                </div>
-                            )}
-                        </div>}
 
-                        {/* VIEWS BUTTONS */}
-                        {data?.roomSnaps?.length>0 && <div className='flex flex-col gap-1 relative text-gray-500 items-center justify-center w-full h-fit uppercase text-xs'>
-                            <div onClick={()=>handleSnapPoint('reset')} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white'>
-                                <div className={`border-b-3 w-full text-[#] ${settings.luyariBlueBorder} ${settings.luyariTextBlue}`}>home</div>
-                            </div>
-                            {data?.roomSnaps?.map((i,index)=>
-                                <div onClick={()=>handleSnapPoint(i?.name)} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white' key={index}>
-                                    <span className='text-center'>{i?.name}</span>
+                            {/* VIEWS BUTTONS */}
+                            {data?.roomSnaps?.length>0 && <div className='flex flex-col gap-1 relative text-gray-500 items-center justify-center w-32 h-fit uppercase text-xs'>
+                                <div onClick={()=>handleSnapPoint('reset')} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white'>
+                                    <div className={`border-b-3 w-full text-[#] ${settings.luyariBlueBorder} ${settings.luyariTextBlue}`}>home</div>
                                 </div>
-                            )}
-                        </div>}
-                    </div>
+                                {data?.roomSnaps?.map((i,index)=>
+                                    <div onClick={()=>handleSnapPoint(i?.name)} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white' key={index}>
+                                        <span className='text-center'>{i?.name}</span>
+                                    </div>
+                                )}
+                            </div>}
+
+                            {/* COLORS BUTTONS */}
+                            {/* {data?.roomSnaps?.length>0 && <div className='flex flex-col gap-1 relative text-gray-500 items-center justify-center w-full h-fit uppercase text-xs'>
+                                <div onClick={()=>handleSnapPoint('reset')} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white'>
+                                    <div className={`border-b-3 w-full text-[#] ${settings.luyariBlueBorder} ${settings.luyariTextBlue}`}>home</div>
+                                </div>
+                                {data?.roomSnaps?.map((i,index)=>
+                                    <div onClick={()=>handleSnapPoint(i?.name)} className='flex cursor-pointer w-full items-center justify-start pl-4 h-7 bg-white' key={index}>
+                                        <span className='text-center'>{i?.name}</span>
+                                    </div>
+                                )}
+                            </div>} */}
+                    </LeftUIWrapper>
                 }
             </div>
+        </div>}
+
+        {/* sing-in UI */}
+        {!closeBtnState && <div className={`left-wrapper top-2 absolute right-0 z-50`}>
+            <RollOverStateWrapper src={settings.btnsImages.signin_2}/>
         </div>}
     </>
   )

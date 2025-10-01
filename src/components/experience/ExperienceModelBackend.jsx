@@ -13,6 +13,17 @@ export default function ExperienceModel({data}) {
     const ref = useRef()
 
     useEffect(() => {
+        const gui = new GUI()
+        gui.add(ref.current.position, 'x', -100,100)
+        gui.add(ref.current.position, 'y', -100,100)
+        gui.add(ref.current.position, 'z', -100,100)
+        
+        return () => {
+            gui.destroy()
+        }
+    }, [])
+
+    useEffect(() => {
         if (data?.position && experienceState?.modelMode) {
             const [x, y, z] = data.position.split(',').map(Number)
             ref.current.position.set(x, y, z)
