@@ -63,6 +63,10 @@ export default function ExperienceWorld({data}) {
       setRotationZ(value)
     }
 
+    const handle360Click = (value) => {
+      setRotationZ(value)
+    }
+
     async function checkForARSupport() {
         // 1. Check if the WebXR API is present in the browser's navigator object.
         if (!navigator.xr) {
@@ -144,6 +148,7 @@ export default function ExperienceWorld({data}) {
                     activate={activate}
                     style360BtnCss={style360BtnCss}
                     arSupported={arSupported}
+                    handle360Click={handle360Click}
                 />
                 <ExperienceUI 
                     data={data}
@@ -162,6 +167,7 @@ export default function ExperienceWorld({data}) {
                     style360BtnCss={style360BtnCss}
                     arSupported={arSupported}
                     virtaulizationState={virtaulizationState}
+                    handle360Click={handle360Click}
                 />
             </div>
         </>

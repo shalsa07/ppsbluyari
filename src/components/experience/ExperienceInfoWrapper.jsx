@@ -23,7 +23,7 @@ export default function ExperienceInfoWrapper({data,options}) {
         </p>
         <p className='text-sm'>{data?.desc}</p>
         <p className='text-xs'>{data?.features}</p>
-        <div className='flex flex-col w-full gap-1 px-5 py-1'>
+        <div className='flex flex-col w-full gap-1 px-3 py-1'>
             {data?.buildingHighlights?.map((i,index)=>
                 <div key={index}>
                     <h1 className='uppercase underline text-sm'>{i?.title}</h1>
