@@ -22,8 +22,10 @@ export default function Navbar() {
   // Helper function to create URL-friendly slugs
   const createSlug = (text) => text.replace(/\s+/g, '-').toLowerCase();
 
+  console.log(pathname)
+
   return (
-    <nav className='flex text-white absolute from-black bg-gradient-to-b top-0 mx-auto z-20 justify-between w-full h-hit items-start'>
+    <nav className={`flex text-white absolute ${pathname?.length>2 && 'from-gray-400 bg-gradient-to-b'} top-0 mx-auto z-20 justify-between w-full h-hit items-start`}>
       <Link className='flex flex-1 items-center h-fit z-50' href={'/'}>
         <img className='ml-2 md:w-auto w-[120px] h-full' src="/assets/ppsb_luyari_logo.png" alt="" />
       </Link>
