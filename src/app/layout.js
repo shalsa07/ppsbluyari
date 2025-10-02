@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ExperienceContextProvider from "@/libs/contextProviders/experienceContext";
+import WhatsAppComponent from "@/components/WhatsAppComponent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,9 +27,10 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ExperienceContextProvider>
-            <Navbar/>
-            <Footer/>
-            {children}
+          <Navbar/>
+          <Footer/>
+          {children}
+          <WhatsAppComponent/>
         </ExperienceContextProvider>
       </body>
     </html>

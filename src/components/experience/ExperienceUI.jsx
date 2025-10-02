@@ -147,7 +147,7 @@ export default function ExperienceUI({
                                         <Image fill src={i?.url} alt="" />
                                     </div>
                                     <span className={`text-center md:text-xl text-base ease-linear duration-300 border-b-4 ${experienceState?._360TextureName==i?.name ? settings.luyariBlueBorder :'border-none'}`}>360</span>
-                                    <span className='text-center text-gray-300 md:text-xl text-base mt-3'>{index}</span>
+                                    <span className='text-center text-gray-300 md:text-xl text-base mt-3'>{index+1}</span>
                                 </div>
                             )}
                         </div>

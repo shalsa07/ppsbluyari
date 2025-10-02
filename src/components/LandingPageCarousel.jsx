@@ -147,16 +147,16 @@ export default function LandingPageCarousel() {
 
         {/* Sigin And Explore */}
         <div className='CarouselWrapp absolute flex-col m-auto z-10 flex justify-center items-center h-fit w-fit'>
-          <div className='flex items-center justify-center h-full md:w-auto w-[280px] mb-8'>
+          <div className='flex relative items-center justify-center h-full md:w-auto w-[280px] md:mb-8 mb-4'>
             <img src="/assets/ppsb_logo.png" alt="" />
           </div>
-          <div className='flex items-center justify-center h-full md:w-auto w-[220px]'>
+          <div className='flex relative items-center justify-center h-full md:w-auto w-[220px]'>
             <img src="/assets/luyari_logo.png" alt="" />
           </div>
-          <div className='flex items-center justify-center h-14 w-full uppercase text-center'>
+          <div className='flex items-center justify-center md:text-2xl text-lg h-14 w-full uppercase text-center'>
             your property developement portal
           </div>
-          <div className='flex justify-center items-center h-fit w-full'>
+          <div className='flex relative justify-center items-center h-fit w-full'>
             <RollOverStateWrapper 
               ftn={handleSignInClick} 
               src={settings.btnsImages.signin_1}
@@ -181,9 +181,6 @@ export default function LandingPageCarousel() {
             />
           ))}
         </div>
-
-        {/* Whatsapp Contact Section */}
-        <WhatsAppComponent/>
     </div>
   )
 }

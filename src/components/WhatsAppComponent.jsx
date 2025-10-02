@@ -16,9 +16,9 @@ export default function WhatsAppComponent() {
   return (
     <div 
       onClick={runWhatsappLink} 
-      className='flex z-10 rounded-full items-center justify-center bg-green-500 fixed bottom-4 p-1 left-4 cursor-pointer'
+      className='flex z-50 rounded-full items-center justify-center bg-green-500 fixed bottom-2 p-1 left-2 cursor-pointer'
     >
-      <IoLogoWhatsapp className='text-4xl text-white'/>
+      <IoLogoWhatsapp className='md:text-5xl text-4xl text-white'/>
     </div>
   )
 }
