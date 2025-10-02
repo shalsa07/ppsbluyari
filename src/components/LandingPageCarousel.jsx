@@ -153,7 +153,7 @@ export default function LandingPageCarousel() {
           <div className='flex relative items-center justify-center h-full md:w-auto w-[220px]'>
             <img src="/assets/luyari_logo.png" alt="" />
           </div>
-          <div className='flex items-center justify-center md:text-2xl text-lg h-14 w-full uppercase text-center'>
+          <div className='flex items-center justify-center md:text-base text-sm h-14 w-full uppercase text-center'>
             your property developement portal
           </div>
           <div className='flex relative justify-center items-center h-fit w-full'>
