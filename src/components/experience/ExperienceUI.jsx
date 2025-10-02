@@ -126,7 +126,7 @@ export default function ExperienceUI({
             <div className='flex font-bold relative gap-1 flex-col w-full h-full'>
                 <div className='flex text-gray-500 md:h-16 h-12 items-center justify-end w-full'>
                     <div onClick={()=>router.back()} className='flex items-center justify-center md:w-16 w-12 h-full cursor-pointer bg-white p-[1.25px]'>
-                        <div className='flex items-center justify-center w-20 h-full border-[1.5px] border-gray-500 '>
+                        <div className='flex items-center justify-center w-20 h-full -border-[1.5px] border-gray-500 '>
                             <GoChevronLeft className='text-4xl'/>
                         </div>
                     </div>

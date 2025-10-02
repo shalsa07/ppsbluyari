@@ -23,7 +23,7 @@ export default function Navbar() {
   const createSlug = (text) => text.replace(/\s+/g, '-').toLowerCase();
 
   return (
-    <nav className='flex text-white absolute top-2 mx-auto z-20 justify-between w-full h-hit items-start'>
+    <nav className='flex text-white absolute from-black bg-gradient-to-b top-0 mx-auto z-20 justify-between w-full h-hit items-start'>
       <Link className='flex flex-1 items-center h-fit z-50' href={'/'}>
         <img className='ml-2 md:w-auto w-[120px] h-full' src="/assets/ppsb_luyari_logo.png" alt="" />
       </Link>
